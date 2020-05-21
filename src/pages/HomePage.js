@@ -1,8 +1,9 @@
 
 import React from 'react';
 
+// <> <- react fragment
 const HomePage = () => (
-    <>
+    <> 
         <h1>Hello, welcome to my blog!</h1>
         <p>
             Welcome to my blog! Proin congue
