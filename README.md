@@ -1,2 +1,2 @@
 # ReactBlog
-This project follows Shawn Wassell's react course on O'reilly. 
+This project follows Shaun Wassell's react course on O'reilly. 
