@@ -1,18 +1,19 @@
 import React from 'react';
+import { useParams } from 'react-router-dom'; // <- react hook
+import articles from './article-content';
 
 // <> <- react fragment
-const ArticlePage = () => (
-    <> 
-        <h1>Hello, I'm the Article page!</h1>
-        <p>
-            Welcome to my blog! Proin congue
-            ligula id risus posuere, vel eleifend ex egestas. Sed in turpis leo. 
-            Aliquam malesuada in massa tincidunt egestas. Nam consectetur varius turpis, 
-            non porta arcu porttitor non. In tincidunt vulputate nulla quis egestas. Ut 
-            eleifend ut ipsum non fringilla. Praesent imperdiet nulla nec est luctus, at 
-            sodales purus euismod.
-        </p>
-    </>
-);
+const ArticlePage = () => {
+    const { name } = useParams();
+    const matchingArticle = articles.find(article => article.name === name); 
+    return(
+        <>
+        <h1> {matchingArticle.title} </h1>
+        {matchingArticle.content.map((paragraph, i) => (
+            <p key={i}>{paragraph}</p>
+        ))}
+        </>
+    );
+};
 
 export default ArticlePage;

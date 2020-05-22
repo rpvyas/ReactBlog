@@ -1,17 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import articles from './article-content';
 
 // <> <- react fragment
 const ArticlesListPage = () => (
     <> 
-        <h1>Hello, I'm the Articles list page!</h1>
-        <p>
-            Welcome to my blog! Proin congue
-            ligula id risus posuere, vel eleifend ex egestas. Sed in turpis leo. 
-            Aliquam malesuada in massa tincidunt egestas. Nam consectetur varius turpis, 
-            non porta arcu porttitor non. In tincidunt vulputate nulla quis egestas. Ut 
-            eleifend ut ipsum non fringilla. Praesent imperdiet nulla nec est luctus, at 
-            sodales purus euismod.
-        </p>
+        <h1>Articles</h1>
+        {articles.map(article => (
+            <Link to={`/article/${article.name}`} className = "article-list-item" key={article.name}>
+                <h3>{article.title}</h3>
+                <p>{article.content[0].substring(0,150)}</p>
+            </Link>
+        ))}
     </>
 );
 
