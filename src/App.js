@@ -1,10 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ArticlePage from './pages/ArticlePage';
 import ArticlesListPage from './pages/ArticlesListPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 import './App.css';
 
@@ -14,18 +15,23 @@ function App() {
       <div className="App">
         <NavBar></NavBar>
         <div id="page-body">
-          <Route path="/" exact>
-            <HomePage />
-          </Route>
-          <Route path="/about">
-            <AboutPage />
-          </Route>
-          <Route path="/articles-list">
-            <ArticlesListPage />
-          </Route>
-          <Route path="/article/:name">
-            <ArticlePage />
-          </Route>
+          <Switch>
+            <Route path="/" exact>
+              <HomePage />
+            </Route>
+            <Route path="/about">
+              <AboutPage />
+            </Route>
+            <Route path="/articles-list">
+              <ArticlesListPage />
+            </Route>
+            <Route path="/article/:name">
+              <ArticlePage />
+            </Route>
+            <Route>
+                <NotFoundPage />
+            </Route>
+          </Switch>
         </div>
       </div>
     </BrowserRouter>
